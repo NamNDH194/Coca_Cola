@@ -1,11 +1,9 @@
-//hainamhp194
-//BBWj9L3ODq8IB3lj
-//mongodb+srv://hainamhp194:BBWj9L3ODq8IB3lj@cluster0.dg0vuhq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 const express = require("express");
 require("dotenv").config();
 const cors = require("cors");
 const { CONNECT_DB } = require("./src/config/mongodb");
-// const API_V1 = require("./src/routes/v1");
+const API_V1 = require("./src/routes/V1");
+const errorHandlingMiddleware = require("./src/middlewares/errorHandlingMiddleware");
 
 const START_SERVER = () => {
   const app = express();
@@ -16,7 +14,8 @@ const START_SERVER = () => {
       methods: ["GET", "PUT", "POST", "DELETE"],
     })
   );
-  // app.use("/v1", API_V1);
+  app.use("/v1", API_V1);
+  app.use(errorHandlingMiddleware);
 
   const port = process.env.PORT || 8017;
 
