@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 const express = require("express");
 const { promotionRoutes } = require("./promotionRoutes");
@@ -21,3 +22,17 @@ router.use('/orders', orderRoutes);
 
 module.exports = router;
 
+=======
+const express = require("express");
+const router = express.Router();
+
+const productRoutes = require("./productRoute");
+const findProductRoute = require("./findproductRoute");
+
+
+router.use("/api/v1", productRoutes);
+router.use("/products", findProductRoute);
+
+
+module.exports = router;
+>>>>>>> c4e0ede (done api lay danh sach hang ton)
