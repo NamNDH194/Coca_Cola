@@ -10,4 +10,12 @@ const orderSchema = new mongoose.Schema({
     shipping_id: {type: mongoose.Schema.Types.ObjectId, ref: 'Shipping', default: null},
 });
 
+const orderItemSchema = new mongoose.Schema({
+    order_item_id: {type: mongoose.Schema.Types.ObjectId, unique: true},
+    order_id: {type: mongoose.Schema.Types.ObjectId, ref: 'Order', required: true},
+    product_id: {type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true},
+    quantity: {type: Number, required: true},
+    price: {type: Number, required: true},
+});
+
 module.exports = mongoose.model('Order', orderSchema);
