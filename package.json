@@ -13,10 +13,8 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
-<<<<<<< HEAD
+    "express-validator": "^7.2.1",
     "http-status-codes": "^2.3.0",
-=======
->>>>>>> c4e0ede (done api lay danh sach hang ton)
     "joi": "^18.0.0",
     "mongodb": "^6.18.0",
     "mongoose": "^8.17.0",

@@ -2,36 +2,25 @@ const express = require("express");
 require("dotenv").config();
 const cors = require("cors");
 const { CONNECT_DB } = require("./src/config/mongodb");
-<<<<<<< HEAD
-const API_V1 = require("./src/routes/V1");
-const errorHandlingMiddleware = require("./src/middlewares/errorHandlingMiddleware");
-=======
 const API_V1 = require("./src/routes/V1/index");
->>>>>>> c4e0ede (done api lay danh sach hang ton)
+const errorHandlingMiddleware = require("./src/middlewares/errorHandlingMiddleware");
 
 const START_SERVER = () => {
   const app = express();
 
   app.use(express.json());
-<<<<<<< HEAD
+
   app.use(
     cors({
-      //   origin: process.env.CLIENT_PORT,
       methods: ["GET", "PUT", "POST", "DELETE"],
     })
   );
+
+  // Gắn route chính
   app.use("/v1", API_V1);
+
+  // Middleware xử lý lỗi (nếu có)
   app.use(errorHandlingMiddleware);
-=======
-
-  app.use(cors({
-    methods: ["GET", "PUT", "POST", "DELETE"],
-  }));
-
-  // ✅ Gắn route chính
-  app.use("/", API_V1);
-  
->>>>>>> c4e0ede (done api lay danh sach hang ton)
 
   const port = process.env.PORT || 8017;
 
